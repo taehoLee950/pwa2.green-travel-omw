@@ -1,0 +1,27 @@
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.header-contents {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.header-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+  transform: translateY(-5px);
+}
+
+.header-header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #147432;
+}
