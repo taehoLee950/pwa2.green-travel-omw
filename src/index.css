@@ -1,0 +1,21 @@
+/* CSS에서의 변수 선언 */
+:root {
+  /* 변수명은 무조건 '--'로 시작 */
+  --default-background-color: blanchedalmond;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+body {
+  /* 변수 사용: var(--변수명) 호출 */
+  background-color: var(--default-background-color);
+}

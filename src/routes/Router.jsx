@@ -12,6 +12,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Main />,
       },
+      {
+        path: "/festival",
+        element: <Festival />,
+      },
     ],
   },
 ]);

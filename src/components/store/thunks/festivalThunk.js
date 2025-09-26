@@ -4,7 +4,7 @@ import axiosConfig from "../../../configs/axiosFestivalConfig";
 
 export const getFestivalList = createAsyncThunk(
   "festivalList/getFestivalAPI",
-  async (args, thunkAPI) => {
+  async (nextPage, thunkAPI) => {
     // 현재 전역 state 상태 불러오기
     const state = thunkAPI.getState();
 
@@ -23,12 +23,12 @@ export const getFestivalList = createAsyncThunk(
       _type: axiosConfig.TYPE,
       arrange: axiosConfig.ARRANGE,
       numOfRows: axiosConfig.NUM_OF_ROWS,
-      pageNo: axiosConfig.PAGE_NO + 1,
+      pageNo: nextPage,
       eventEndDate: "20251231",
     };
     // axios.get()의 { params } 는 고정으로 params 임.
     const response = await axios.get(url, { params });
-    console.log("festivalThunk에서 API 리턴 확인: ", response);
+    console.log("festivalThunk에서 API 리턴 확인: ", response, nextPage);
     return response.data.response.body;
   }
 );

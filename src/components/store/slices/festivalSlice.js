@@ -6,6 +6,7 @@ const festivalSlice = createSlice({
   initialState: {
     list: [],
     currentIndex: 0,
+    currentPage: 1,
   },
   reducers: {
     // 인덱스 번호를 증감하여 슬라이드 쇼의 사진 넘기기
@@ -15,11 +16,16 @@ const festivalSlice = createSlice({
         state.currentIndex = (state.currentIndex + 1) % total;
       }
     },
+
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getFestivalList.fulfilled, (state, action) => {
         state.list = action.payload.items.item;
+        state.currentPage = action.payload.pageNo;
         console.log("축제 API를 성공적으로 불러왔습니다.");
       })
       .addCase(getFestivalList.pending, () => {
